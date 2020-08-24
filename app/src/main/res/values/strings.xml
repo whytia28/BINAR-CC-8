@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name" translatable="false">Binar CC 7</string>
+    <string name="logo">logo</string>
+    <string name="keluar">EXIT</string>
+    <string name="batu">rock</string>
+    <string name="kertas">paper</string>
+    <string name="gunting">scissor</string>
+    <string name="pemain_1">Player 1</string>
+    <string name="pemain2">Player 2</string>
+    <string name="logo_game">Logo Game</string>
+    <string name="pemain_lawan_pemain">Player vs player</string>
+    <string name="slide_1_of_3" translatable="false">Slide 1 of 3</string>
+    <string name="slide_2_of_3" translatable="false">Slide 2 of 3</string>
+    <string name="next_slide" translatable="false">Next slide</string>
+    <string name="slide_3_of_3" translatable="false">Slide 3 of 3</string>
+    <string name="bermain_suit_melawan_sesama_pemain">Playing match versus player</string>
+    <string name="bermain_melawan_komputer">Playing match versus CPU</string>
+    <string name="pemain_vs_pemain">Player vs Player</string>
+    <string name="pemain_vs_cpu">Player vs CPU</string>
+    <string name="cpu" translatable="false">CPU</string>
+    <string name="vs_pemain">%1$s vs Player</string>
+    <string name="vs_cpu">%1$s vs CPU</string>
+    <string name="vs" translatable="false">VS</string>
+    <string name="hasil">RESULT</string>
+    <string name="selamat_kamu_menang">%1$s WIN!!!</string>
+    <string name="ok">OK</string>
+    <string name="cpu_menang">CPU WIN!!!</string>
+    <string name="hasil_draw">DRAW!!!</string>
+    <string name="selamat_pemain_2_menang">PLAYER 2 WIN!!!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="prepare_yourself">Prepare Yourself!</string>
+    <string name="login">Login</string>
+    <string name="reset">Reset</string>
+    <string name="login_success">Login successful </string>
+    <string name="button_back">Button back</string>
+    <string name="name">Name</string>
+    <string name="date_title">Date:  </string>
+    <string name="add_history_success">Add History Successful</string>
+    <string name="add_history_failed">Add History Failed</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="delete_success">Delete History Successful</string>
+    <string name="delete_failed">Delete History Failed</string>
+    <string name="belum_punya_akun_daftar">Doesn\'t have account yet? Register</string>
+    <string name="here">here</string>
+    <string name="username">Username</string>
+    <string name="register_your_account">Register your account</string>
+    <string name="title_activity_menu" translatable="false">MainActivity</string>
+    <string name="history">History</string>
+    <string name="battle">Battle</string>
+    <string name="profile">Profile</string>
+    <string name="history_battle">HISTORY BATTLE</string>
+    <string name="choose_your_opponent">CHOOSE YOUR OPPONENT</string>
+    <string name="history_is_empty">History is empty</string>
+    <string name="data_profile">DATA PROFILE</string>
+    <string name="register">REGISTER</string>
+    <string name="history_title">History:  </string>
+    <string name="cpu_win">CPU Win</string>
+    <string name="button_save">Button Save</string>
+    <string name="button_restart">Button restart</string>
+    <string name="update_your_profile">Update Your Profile</string>
+    <string name="tanggal_sekarang">date</string>
+    <string name="edit">Edit</string>
+    <string name="save">Save</string>
+
+</resources>

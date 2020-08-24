@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".areaMain.PemainVsPemain">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/logo2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline"/>
+
+    <TextView
+        android:id="@+id/pemain1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/pemain_1"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/batu1"
+        app:layout_constraintStart_toStartOf="@id/batu1"
+        app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+    <TextView
+        android:id="@+id/cpu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/cpu"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/pemain1"
+        app:layout_constraintEnd_toEndOf="@id/batu2"
+        app:layout_constraintStart_toStartOf="@id/batu2"
+        app:layout_constraintTop_toTopOf="@id/pemain1" />
+
+    <ImageView
+        android:id="@+id/batu1"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/batu"
+        android:src="@drawable/batu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pemain1" />
+
+    <ImageView
+        android:id="@+id/kertas1"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/kertas"
+        android:src="@drawable/kertas"
+        app:layout_constraintStart_toStartOf="@id/batu1"
+        app:layout_constraintTop_toBottomOf="@id/batu1"
+        app:layout_constraintEnd_toEndOf="@id/batu1"/>
+
+    <ImageView
+        android:id="@+id/gunting1"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/gunting"
+        android:src="@drawable/gunting"
+        app:layout_constraintStart_toStartOf="@id/kertas1"
+        app:layout_constraintTop_toBottomOf="@id/kertas1"
+        app:layout_constraintEnd_toEndOf="@id/kertas1"/>
+
+    <ImageView
+        android:id="@+id/batu2"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginEnd="50dp"
+        android:contentDescription="@string/batu"
+        android:src="@drawable/batu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/batu1"
+        app:layout_constraintTop_toTopOf="@id/batu1" />
+
+    <ImageView
+        android:id="@+id/kertas2"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/kertas"
+        android:src="@drawable/kertas"
+        app:layout_constraintStart_toStartOf="@id/batu2"
+        app:layout_constraintTop_toBottomOf="@id/batu2"
+        app:layout_constraintEnd_toEndOf="@id/batu2"/>
+
+    <ImageView
+        android:id="@+id/gunting2"
+        android:layout_width="92dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/gunting"
+        android:src="@drawable/gunting"
+        app:layout_constraintStart_toStartOf="@id/kertas2"
+        app:layout_constraintTop_toBottomOf="@id/kertas2"
+        app:layout_constraintEnd_toEndOf="@id/kertas2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vs"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="64sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+    <ImageView
+        android:id="@+id/iv_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/button_save"
+        android:src="@drawable/ic_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/gunting1"
+        app:layout_constraintStart_toStartOf="@id/gunting1"
+        app:layout_constraintTop_toBottomOf="@id/guideline2" />
+
+    <ImageView
+        android:id="@+id/iv_delete_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/button_save"
+        android:src="@drawable/ic_save_active"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/gunting1"
+        app:layout_constraintStart_toStartOf="@id/gunting1"
+        app:layout_constraintTop_toBottomOf="@id/guideline2" />
+
+    <ImageView
+        android:id="@+id/iv_restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_auto_renew"
+        android:contentDescription="@string/button_restart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/gunting2"
+        app:layout_constraintEnd_toEndOf="@id/gunting2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

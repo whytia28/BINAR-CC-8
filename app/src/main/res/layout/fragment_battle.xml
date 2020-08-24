@@ -1,0 +1,84 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="com.example.binarchapter7.main.ui.battle.BattleFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_your_opponent"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"/>
+
+    <ImageView
+        android:id="@+id/pemainvspemain"
+        android:layout_width="0dp"
+        android:layout_height="128dp"
+        android:contentDescription="@string/pemain_lawan_pemain"
+        android:src="@drawable/pemain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline2" />
+
+    <TextView
+        android:id="@+id/tv_pemain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:hint="@string/pemain_vs_pemain"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/pemainvspemain"
+        app:layout_constraintStart_toStartOf="@id/pemainvspemain"
+        app:layout_constraintTop_toBottomOf="@id/pemainvspemain" />
+
+    <ImageView
+        android:id="@+id/pemainvscpu"
+        android:layout_width="0dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/bermain_melawan_komputer"
+        android:src="@drawable/cpu"
+        app:layout_constraintEnd_toEndOf="@id/pemainvspemain"
+        app:layout_constraintStart_toStartOf="@id/pemainvspemain"
+        app:layout_constraintTop_toBottomOf="@id/pemainvspemain" />
+
+    <TextView
+        android:id="@+id/tv_cpu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:hint="@string/pemain_vs_cpu"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/pemainvscpu"
+        app:layout_constraintStart_toStartOf="@id/pemainvscpu"
+        app:layout_constraintTop_toBottomOf="@id/pemainvscpu" />
+
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_effect"
+        android:text="@string/keluar"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_cpu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".welcome.PemainFragment">
+
+
+    <ImageView
+        android:id="@+id/profil"
+        android:layout_width="0dp"
+        android:layout_height="192dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:contentDescription="@string/pemain_lawan_pemain"
+        android:src="@drawable/profil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/prepare_yourself"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@id/profil"
+        app:layout_constraintStart_toStartOf="@id/profil"
+        app:layout_constraintTop_toBottomOf="@id/profil" />
+
+<!--    <EditText-->
+<!--        android:id="@+id/input_nama"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:hint="@string/silakan_input_nama"-->
+<!--        app:layout_constraintEnd_toEndOf="@id/keterangan"-->
+<!--        app:layout_constraintStart_toStartOf="@id/keterangan"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/keterangan"-->
+<!--        android:autofillHints="Nama"-->
+<!--        android:inputType="text" />-->
+
+    <TextView
+        android:id="@+id/slide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/slide_3_of_3"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/next_slide"
+        android:src="@drawable/ic_baseline_navigate_next_"
+        app:layout_constraintBottom_toBottomOf="@id/slide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/slide"
+        app:layout_constraintTop_toTopOf="@id/slide" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
