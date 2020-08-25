@@ -9,11 +9,11 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @POST ("login")
-    fun validateLogin(@Body body: PostLoginBody): Call<PostLoginResponse>
+    @POST ("auth/login")
+    fun validateLogin(@Body body: PostLoginBody): Call<LoginResponse>
 
-    @POST("register")
-    fun registerUser(@Body bodyRegister: PostBodyRegister): Call<PostRegisterResponse>
+    @POST("auth/register")
+    fun registerUser(@Body bodyRegister: PostBodyRegister): Call<RegisterResponse>
 
     @PUT("{id}")
     fun updateUser(@Body updateBody: PutUpdateBody, @Path("id") id: String): Call<PutUpdateResponse>

@@ -9,16 +9,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.binarchapter7.R
 import com.example.binarchapter7.main.MenuActivity
-import com.example.binarchapter7.pojo.PostLoginResponse
+import com.example.binarchapter7.pojo.LoginResponse
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.fragment_profil.*
+import javax.inject.Inject
 
 
 class ProfileFragment : Fragment(), ProfilePresenter.Listener {
     private lateinit var profileViewModel: ProfileViewModel
-    private lateinit var presenter: ProfilePresenter
+
+    @Inject
+    lateinit var presenter: ProfilePresenter
 
     companion object {
-        lateinit var result: PostLoginResponse.Data
+        lateinit var result: LoginResponse.Data
     }
 
 
@@ -34,14 +38,15 @@ class ProfileFragment : Fragment(), ProfilePresenter.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        AndroidInjection.inject(activity)
 
         val context = view.context as MenuActivity
         context.supportActionBar?.title = getString(R.string.profile)
-        context.intent.getParcelableExtra<PostLoginResponse.Data>("data")?.let {
+        context.intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
             result = it
         }
 
-        presenter = ProfilePresenter(this)
+        presenter.listener = this
         presenter.showProfile()
 
         cv_profile.setOnClickListener {

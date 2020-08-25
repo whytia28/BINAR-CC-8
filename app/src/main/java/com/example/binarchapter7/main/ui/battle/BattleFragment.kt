@@ -11,13 +11,13 @@ import com.example.binarchapter7.R
 import com.example.binarchapter7.areaMain.PemainVsCpu
 import com.example.binarchapter7.areaMain.PemainVsPemain
 import com.example.binarchapter7.main.MenuActivity
-import com.example.binarchapter7.pojo.PostLoginResponse
+import com.example.binarchapter7.pojo.LoginResponse
 import kotlinx.android.synthetic.main.fragment_battle.*
 
 
 class BattleFragment : Fragment(), View.OnClickListener, BattlePresenter.Listener {
     private lateinit var battleViewModel: BattleViewModel
-    private lateinit var result: PostLoginResponse.Data
+    private lateinit var result: LoginResponse.Data
     private lateinit var presenter: BattlePresenter
 
 
@@ -37,7 +37,7 @@ class BattleFragment : Fragment(), View.OnClickListener, BattlePresenter.Listene
         val context = view.context as MenuActivity
         context.supportActionBar?.title = getString(R.string.battle)
 
-        context.intent.getParcelableExtra<PostLoginResponse.Data>("data")?.let {
+        context.intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
             result = it
         }
 
@@ -66,13 +66,13 @@ class BattleFragment : Fragment(), View.OnClickListener, BattlePresenter.Listene
         }
     }
 
-    override fun goToPemainVsPemain(data: PostLoginResponse.Data) {
+    override fun goToPemainVsPemain(data: LoginResponse.Data) {
         val moveIntent = Intent(context, PemainVsPemain::class.java)
         moveIntent.putExtra("data", data)
         startActivity(moveIntent)
     }
 
-    override fun goToPemainVsCpu(data: PostLoginResponse.Data) {
+    override fun goToPemainVsCpu(data: LoginResponse.Data) {
         val moveIntent = Intent(context, PemainVsCpu::class.java)
         moveIntent.putExtra("data", data)
         startActivity(moveIntent)

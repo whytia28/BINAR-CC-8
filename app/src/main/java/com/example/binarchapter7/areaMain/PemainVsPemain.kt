@@ -9,30 +9,36 @@ import androidx.core.content.res.ResourcesCompat
 import com.example.binarchapter7.R
 import com.example.binarchapter7.database.Battle
 import com.example.binarchapter7.logic.Controler
-import com.example.binarchapter7.pojo.PostLoginResponse
+import com.example.binarchapter7.pojo.LoginResponse
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_pemain_vs_pemain.*
 import kotlinx.android.synthetic.main.custom_alert_dialog.*
 import kotlinx.android.synthetic.main.custom_alert_dialog.view.*
+import javax.inject.Inject
 
 class PemainVsPemain : AppCompatActivity(), PemainVsPemainPresenter.Listener {
 
     private var pilihanSatu: String = ""
     private var pilihanDua: String = ""
     private var pemenang: String = ""
-    private lateinit var result: PostLoginResponse.Data
-    private lateinit var presenter: PemainVsPemainPresenter
+    private lateinit var result: LoginResponse.Data
     private lateinit var date: String
     private lateinit var objBattle: Battle
+
+    @Inject
+    lateinit var presenter: PemainVsPemainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pemain_vs_pemain)
+        AndroidInjection.inject(this)
 
-        intent.getParcelableExtra<PostLoginResponse.Data>("data")?.let {
+
+        intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
             result = it
         }
         pemain1.text = result.username
-        presenter = PemainVsPemainPresenter(this, this)
+        presenter.listener = this
         date = presenter.getCurrentDate()
 
         batu1.setOnClickListener {

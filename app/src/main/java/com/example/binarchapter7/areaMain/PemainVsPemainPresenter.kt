@@ -4,34 +4,37 @@ package com.example.binarchapter7.areaMain
 import android.content.Context
 import com.example.binarchapter7.database.Battle
 import com.example.binarchapter7.database.BattleDatabase
+import com.example.binarchapter7.network.ApiService
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
-class PemainVsPemainPresenter(context: Context, val listener: Listener) {
+class PemainVsPemainPresenter(context: Context, val apiService: ApiService) {
+
+    var listener: Listener? = null
 
     private var battleDb = BattleDatabase.getInstance(context)
 
     fun showResult() {
-        listener.showResult()
+        listener?.showResult()
     }
 
     fun startNew() {
-        listener.startNew()
+        listener?.startNew()
     }
 
     fun setOverlay() {
-        listener.setOverlay()
+        listener?.setOverlay()
     }
 
     fun saveHistory(battle: Battle) {
         GlobalScope.launch {
             val result = battleDb?.battleDao()?.insert(battle)
             if (result != 0.toLong()) {
-                listener.showSuccessSave()
+                listener?.showSuccessSave()
             } else {
-                listener.showFailedSave()
+                listener?.showFailedSave()
             }
         }
     }

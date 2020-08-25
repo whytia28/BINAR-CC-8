@@ -4,17 +4,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.binarchapter7.R
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_register.*
+import javax.inject.Inject
 
 class RegisterActivity : AppCompatActivity(), RegisterPresenter.Listener {
 
-    private lateinit var presenter: RegisterPresenter
+    @Inject
+   lateinit var presenter: RegisterPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        AndroidInjection.inject(this)
 
-        presenter = RegisterPresenter(this)
+        presenter.listener = this
 
         btn_register.setOnClickListener {
             presenter.registerUser(et_email.text.toString(), et_password.text.toString(), et_username.text.toString())

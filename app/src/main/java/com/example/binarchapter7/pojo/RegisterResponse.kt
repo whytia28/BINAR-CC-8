@@ -3,19 +3,17 @@ package com.example.binarchapter7.pojo
 
 import com.google.gson.annotations.SerializedName
 
-data class PostRegisterResponse(
+data class RegisterResponse(
     @SerializedName("data")
     val `data`: Data,
-    @SerializedName("message")
-    val message: String,
-    @SerializedName("status")
-    val status: Int
+    @SerializedName("success")
+    val success: String
 ) {
     data class Data(
         @SerializedName("email")
         val email: String,
-        @SerializedName("id")
-        val id: Int,
+        @SerializedName("_id")
+        val id: String,
         @SerializedName("username")
         val username: String
     )

@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'kotlin-kapt'
 
 androidExtensions {
     experimental = true
@@ -27,10 +28,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"https://binar-gdd-cc8.herokuapp.com/api/v1/\""
         }
         debug {
             minifyEnabled false
-            buildConfigField "String", "BASE_URL", "\"https://still-temple-51886.herokuapp.com/api/v1/user/\""
+            buildConfigField "String", "BASE_URL", "\"https://binar-gdd-cc8.herokuapp.com/api/v1/\""
         }
 
     }
