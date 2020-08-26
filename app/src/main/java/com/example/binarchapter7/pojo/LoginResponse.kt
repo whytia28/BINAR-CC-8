@@ -9,7 +9,7 @@ data class LoginResponse(
     @SerializedName("data")
     val `data`: Data,
     @SerializedName("success")
-    val success: String
+    val success: Boolean
 ) {
     @Parcelize
     data class Data(

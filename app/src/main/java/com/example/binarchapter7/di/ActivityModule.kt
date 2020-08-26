@@ -27,7 +27,5 @@ abstract class ActivityModule {
     @ContributesAndroidInjector
     abstract fun registerActivity(): RegisterActivity
 
-    @ContributesAndroidInjector
-    abstract fun profileFragment(): ProfileFragment
 
 }

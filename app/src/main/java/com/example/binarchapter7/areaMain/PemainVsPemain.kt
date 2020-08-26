@@ -29,9 +29,10 @@ class PemainVsPemain : AppCompatActivity(), PemainVsPemainPresenter.Listener {
     lateinit var presenter: PemainVsPemainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pemain_vs_pemain)
-        AndroidInjection.inject(this)
+
 
 
         intent.getParcelableExtra<LoginResponse.Data>("data")?.let {

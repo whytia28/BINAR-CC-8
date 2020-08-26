@@ -30,14 +30,13 @@ class LoginPresenter(private val apiService: ApiService) {
                     response.body()?.data?.let { listener?.goToMenuActivity(it) }
                 } else if (email.isEmpty() && password.isEmpty()) {
                     listener?.onFieldEmpty(response.message())
-                } else{
+                } else {
                     response.errorBody()?.string()?.let {
                         val jsonObject = JSONObject(it)
                         listener?.onLoginFailed(jsonObject.getString("errors"))
                     }
                 }
             }
-
         })
     }
 

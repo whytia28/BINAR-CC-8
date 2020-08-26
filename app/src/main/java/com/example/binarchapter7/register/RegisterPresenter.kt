@@ -17,10 +17,6 @@ class RegisterPresenter(private val apiService: ApiService) {
         val userRegister = PostBodyRegister(email, password, username)
 
         apiService.registerUser(userRegister).enqueue(object : Callback<RegisterResponse> {
-            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                listener?.onRegisterFailed(t.message.toString())
-            }
-
             override fun onResponse(
                 call: Call<RegisterResponse>,
                 response: Response<RegisterResponse>
@@ -30,7 +26,6 @@ class RegisterPresenter(private val apiService: ApiService) {
                         val jsonObjectFailed = JSONObject(it)
                         listener?.onUsernameExist(jsonObjectFailed.getString("errors"))
                     }
-
                 } else {
                     response.body()?.success.let {
                         if (it != null) {
@@ -40,7 +35,12 @@ class RegisterPresenter(private val apiService: ApiService) {
                 }
             }
 
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                listener?.onRegisterFailed(t.message.toString())
+            }
+
         })
+
     }
 
     fun resetEditText() {

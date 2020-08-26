@@ -1,6 +1,7 @@
 package com.example.binarchapter7.main.ui.profile
 
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,17 +9,25 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.example.binarchapter7.R
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_update_user.*
+import javax.inject.Inject
 
 private const val USERNAME = "username"
 private const val EMAIL = "email"
 
 class UpdateUserFragment : DialogFragment(), View.OnClickListener, ProfilePresenter.Listener {
 
-    private lateinit var presenter: ProfilePresenter
+    @Inject
+    lateinit var presenter: ProfilePresenter
     private var username: String? = null
     private var email: String? = null
     private var result = ProfileFragment.result
+
+    override fun onAttach(context: Context) {
+        AndroidSupportInjection.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +72,7 @@ class UpdateUserFragment : DialogFragment(), View.OnClickListener, ProfilePresen
         btn_update_user.setOnClickListener(this)
         btn_cancel.setOnClickListener(this)
 
-        presenter = ProfilePresenter(this)
+        presenter.listener = this
 
         et_email.setText(result.email)
         et_username.setText(result.username)
@@ -95,6 +104,10 @@ class UpdateUserFragment : DialogFragment(), View.OnClickListener, ProfilePresen
     }
 
     override fun showProfile() {
+
+    }
+
+    override fun showEditUi() {
 
     }
 }

@@ -14,9 +14,9 @@ class RegisterActivity : AppCompatActivity(), RegisterPresenter.Listener {
    lateinit var presenter: RegisterPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        AndroidInjection.inject(this)
 
         presenter.listener = this
 

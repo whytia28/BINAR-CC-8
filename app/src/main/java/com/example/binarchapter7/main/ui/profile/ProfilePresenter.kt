@@ -38,10 +38,14 @@ class ProfilePresenter(private val apiService: ApiService) {
     fun showProfile() {
         listener?.showProfile()
     }
+    fun editProfile() {
+        listener?.showEditUi()
+    }
 
     interface Listener {
         fun onUpdateSuccess(message: String)
         fun onUpdateFailed(errorMessage: String)
         fun showProfile()
+        fun showEditUi()
     }
 }

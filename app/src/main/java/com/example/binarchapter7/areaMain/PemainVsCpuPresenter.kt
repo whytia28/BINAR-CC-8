@@ -2,18 +2,15 @@ package com.example.binarchapter7.areaMain
 
 import android.content.Context
 import com.example.binarchapter7.database.Battle
-import com.example.binarchapter7.database.BattleDatabase
 import com.example.binarchapter7.network.ApiService
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class PemainVsCpuPresenter(context: Context, private val apiService: ApiService) {
+class PemainVsCpuPresenter() {
 
     var listener: Listener? = null
-    private var battleDb = BattleDatabase.getInstance(context)
+//    private var battleDb = BattleDatabase.getInstance(context)
 
     fun showResult() {
         listener?.showResult()
@@ -32,14 +29,14 @@ class PemainVsCpuPresenter(context: Context, private val apiService: ApiService)
     }
 
     fun saveHistory(battle: Battle) {
-        GlobalScope.launch {
-            val result = battleDb?.battleDao()?.insert(battle)
-            if (result != 0.toLong()) {
-                listener?.showSuccessSave()
-            } else {
-                listener?.showFailedSave()
-            }
-        }
+//        GlobalScope.launch {
+//            val result = battleDb?.battleDao()?.insert(battle)
+//            if (result != 0.toLong()) {
+//                listener?.showSuccessSave()
+//            } else {
+//                listener?.showFailedSave()
+//            }
+//        }
     }
 
 

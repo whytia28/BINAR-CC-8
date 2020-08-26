@@ -2,19 +2,17 @@ package com.example.binarchapter7.network
 
 import com.example.binarchapter7.pojo.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.PUT
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiService {
 
-    @POST ("auth/login")
+    @POST ("v1/auth/login")
     fun validateLogin(@Body body: PostLoginBody): Call<LoginResponse>
 
-    @POST("auth/register")
+    @POST("v1/auth/register")
     fun registerUser(@Body bodyRegister: PostBodyRegister): Call<RegisterResponse>
 
-    @PUT("{id}")
-    fun updateUser(@Body updateBody: PutUpdateBody, @Path("id") id: String): Call<PutUpdateResponse>
+//    @Multipart
+//    @PUT("v1/users")
+////    fun updateUser() : Call<PutUpdateResponse> uploadImage(@Part)
 }

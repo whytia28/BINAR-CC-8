@@ -1,6 +1,6 @@
 package com.example.binarchapter7.di
 
-import android.content.Context
+
 import com.example.binarchapter7.areaMain.PemainVsCpuPresenter
 import com.example.binarchapter7.areaMain.PemainVsPemainPresenter
 import com.example.binarchapter7.login.LoginPresenter
@@ -28,14 +28,14 @@ class PresenterModule {
 
     @Singleton
     @Provides
-    fun providePemainVsPemainPresenter(context: Context, apiService: ApiService) : PemainVsPemainPresenter {
-        return PemainVsPemainPresenter(context, apiService)
+    fun providePemainVsPemainPresenter() : PemainVsPemainPresenter {
+        return PemainVsPemainPresenter()
     }
 
     @Singleton
     @Provides
-    fun providePemainVsCpu(context: Context, apiService: ApiService) : PemainVsCpuPresenter {
-        return PemainVsCpuPresenter(context, apiService)
+    fun providePemainVsCpu() : PemainVsCpuPresenter {
+        return PemainVsCpuPresenter()
     }
 
     @Singleton

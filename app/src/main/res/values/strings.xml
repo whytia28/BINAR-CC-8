@@ -64,5 +64,8 @@
     <string name="tanggal_sekarang">date</string>
     <string name="edit">Edit</string>
     <string name="save">Save</string>
+    <string name="choose_from">Choose from</string>
+    <string name="from_gallery">Select from Gallery</string>
+    <string name="take_picture">Take Picture from Camera</string>
 
 </resources>

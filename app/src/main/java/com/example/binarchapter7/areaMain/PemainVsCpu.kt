@@ -29,9 +29,10 @@ class PemainVsCpu : AppCompatActivity(), PemainVsCpuPresenter.Listener {
     lateinit var presenter: PemainVsCpuPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pemain_vs_cpu)
-        AndroidInjection.inject(this)
+
 
         intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
             result = it
