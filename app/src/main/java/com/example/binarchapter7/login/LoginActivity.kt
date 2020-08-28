@@ -1,5 +1,6 @@
 package com.example.binarchapter7.login
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -66,5 +67,6 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.Listener {
         val goToRegisterActivity = Intent(this, RegisterActivity::class.java)
         startActivity(goToRegisterActivity)
     }
+
 
 }

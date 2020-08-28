@@ -77,11 +77,6 @@ class ProfileFragment : Fragment(), ProfilePresenter.Listener {
             presenter.editProfile()
         }
 
-        cv_profile.setOnClickListener {
-            val dialog = UpdateUserFragment.newInstance(result.email, result.username)
-            dialog.show(context.supportFragmentManager, "Dialog Update Fragment")
-        }
-
         iv_set_profile.setOnClickListener {
             if (checkPermission()) {
                 val pictureDialog = AlertDialog.Builder(context)
@@ -195,8 +190,8 @@ class ProfileFragment : Fragment(), ProfilePresenter.Listener {
         startActivityForResult(intentCamera, CAMERA_REQUEST)
     }
 
-    override fun onUpdateSuccess(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    override fun onUpdateSuccess() {
+//        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onUpdateFailed(errorMessage: String) {

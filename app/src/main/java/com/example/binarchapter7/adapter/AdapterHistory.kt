@@ -5,13 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.binarchapter7.R
-import com.example.binarchapter7.database.Battle
-import com.example.binarchapter7.main.ui.history.HistoryPresenter
+import com.example.binarchapter7.pojo.GetBattleResponse
 import kotlinx.android.synthetic.main.history_item.view.*
 
 class AdapterHistory(
-    private val historyBattle: List<Battle>,
-    private val presenter: HistoryPresenter
+    private val historyBattle: List<GetBattleResponse.Data>
 ) : RecyclerView.Adapter<AdapterHistory.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,17 +21,14 @@ class AdapterHistory(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(historyBattle[position])
-        holder.itemView.tv_delete.setOnClickListener {
-            presenter.deleteHistory(historyBattle[position])
-            presenter.showAllHistory()
-        }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(battle: Battle) {
+        fun bind(battle: GetBattleResponse.Data) {
             with(itemView) {
-                tv_date.text = battle.date
-                tv_history.text = battle.result
+                tv_date.text = battle.createdAt
+                tv_mode.text = battle.mode
+                tv_history.text = battle.message
             }
         }
     }

@@ -67,5 +67,7 @@
     <string name="choose_from">Choose from</string>
     <string name="from_gallery">Select from Gallery</string>
     <string name="take_picture">Take Picture from Camera</string>
+    <string name="mode_title">Mode: </string>
+    <string name="single_player">Single Player</string>
 
 </resources>

@@ -27,7 +27,9 @@ class LoginPresenter(private val apiService: ApiService) {
                 response: Response<LoginResponse>
             ) {
                 if (response.code() == 200) {
-                    response.body()?.data?.let { listener?.goToMenuActivity(it) }
+                    response.body()?.data?.let {
+                        listener?.goToMenuActivity(it)
+                    }
                 } else if (email.isEmpty() && password.isEmpty()) {
                     listener?.onFieldEmpty(response.message())
                 } else {

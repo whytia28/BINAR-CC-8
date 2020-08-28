@@ -33,12 +33,31 @@
             app:layout_constraintBottom_toBottomOf="@id/title_date"/>
 
         <TextView
+            android:id="@+id/title_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TexContent"
+            android:text="@string/mode_title"
+            app:layout_constraintTop_toBottomOf="@id/title_date"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:hint="@string/single_player"
+            app:layout_constraintStart_toEndOf="@id/title_mode"
+            app:layout_constraintTop_toTopOf="@id/title_mode"
+            app:layout_constraintBottom_toBottomOf="@id/title_mode"/>
+
+        <TextView
             android:id="@+id/title_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/TexContent"
             android:text="@string/history_title"
-            app:layout_constraintTop_toBottomOf="@id/title_date"
+            app:layout_constraintTop_toBottomOf="@id/title_mode"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -51,15 +70,6 @@
             app:layout_constraintTop_toTopOf="@id/title_history"
             app:layout_constraintBottom_toBottomOf="@id/title_history"/>
 
-        <TextView
-            android:id="@+id/tv_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/delete"
-            style="@style/TexContent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/title_date"
-            app:layout_constraintBottom_toBottomOf="@id/tv_history" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
