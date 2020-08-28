@@ -4,7 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context="com.example.binarchapter7.main.ui.profile.ProfileFragment">
+    tools:context="com.example.binarchapter8.main.ui.profile.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back"
+        android:layout_margin="8dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_edit"
@@ -37,7 +47,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_profile"
-        app:layout_constraintBottom_toTopOf="@id/guideline2"/>
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
+        android:contentDescription="@string/image_profile" />
 
     <ImageView
         android:id="@+id/iv_set_profile"
@@ -46,7 +57,18 @@
         android:src="@drawable/ic_camera"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@id/iv_profile"
-        app:layout_constraintBottom_toBottomOf="@id/iv_profile" />
+        app:layout_constraintBottom_toBottomOf="@id/iv_profile"
+        android:contentDescription="@string/button_set_profile" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_profile"
@@ -86,6 +108,7 @@
                 android:inputType="textEmailAddress"
                 android:labelFor="@id/tv_email"
                 android:textSize="20sp"
+                android:enabled="false"
                 android:theme="@style/MyEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -110,6 +133,7 @@
                 android:inputType="textPersonName"
                 android:labelFor="@id/et_username"
                 android:textSize="20sp"
+                android:enabled="false"
                 android:theme="@style/MyEditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

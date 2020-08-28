@@ -8,6 +8,15 @@
     tools:context=".areaMain.PemainVsPemain">
 
     <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/logo"
         android:layout_width="128dp"
         android:layout_height="128dp"

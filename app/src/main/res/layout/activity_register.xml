@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     android:padding="16dp"
-    tools:context="com.example.binarchapter7.register.RegisterActivity">
+    tools:context="com.example.binarchapter8.register.RegisterActivity">
 
     <ImageView
         android:id="@+id/btn_back"

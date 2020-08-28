@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/navigation_battle"
-        android:name="com.example.binarchapter7.main.ui.battle.BattleFragment"
+        android:name="com.example.binarchapter8.main.ui.battle.BattleFragment"
         android:label="@string/battle"
         tools:layout="@layout/fragment_battle">
         <argument android:name="username"
@@ -17,13 +17,13 @@
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.example.binarchapter7.main.ui.history.HistoryFragment"
+        android:name="com.example.binarchapter8.main.ui.history.HistoryFragment"
         android:label="@string/history"
         tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.binarchapter7.main.ui.profile.ProfileFragment"
+        android:name="com.example.binarchapter8.main.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profil">
         <argument android:name="username"

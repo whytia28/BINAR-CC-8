@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context="com.example.binarchapter7.main.ui.battle.BattleFragment">
+    tools:context="com.example.binarchapter8.main.ui.battle.BattleFragment">
 
     <TextView
         android:layout_width="wrap_content"

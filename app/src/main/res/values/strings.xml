@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Binar CC 7</string>
+    <string name="app_name" translatable="false">Binar CC 8</string>
     <string name="logo">logo</string>
     <string name="keluar">EXIT</string>
     <string name="batu">rock</string>
@@ -25,7 +25,7 @@
     <string name="selamat_kamu_menang">%1$s WIN!!!</string>
     <string name="ok">OK</string>
     <string name="cpu_menang">CPU WIN!!!</string>
-    <string name="hasil_draw">DRAW!!!</string>
+    <string name="hasil_draw">Draw</string>
     <string name="selamat_pemain_2_menang">PLAYER 2 WIN!!!</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -69,5 +69,8 @@
     <string name="take_picture">Take Picture from Camera</string>
     <string name="mode_title">Mode: </string>
     <string name="single_player">Single Player</string>
+    <string name="button_set_profile">Button set profile</string>
+    <string name="image_profile">Image profile</string>
+    <string name="change_language">Change Language</string>
 
 </resources>
