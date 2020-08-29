@@ -10,6 +10,7 @@ import com.example.binarchapter8.main.ui.history.HistoryPresenter
 import com.example.binarchapter8.main.ui.profile.ProfilePresenter
 import com.example.binarchapter8.network.ApiService
 import com.example.binarchapter8.register.RegisterPresenter
+import com.example.binarchapter8.welcome.PreparePresenter
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -60,5 +61,10 @@ class PresenterModule {
         return BattlePresenter()
     }
 
+    @Singleton
+    @Provides
+    fun providePreparePresenter(apiService: ApiService): PreparePresenter {
+        return PreparePresenter(apiService)
+    }
 
 }

@@ -59,6 +59,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_password" />
 
+    <CheckBox
+        android:id="@+id/check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remember_me"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_password" />
+
 
     <Button
         android:id="@+id/btn_login"
@@ -69,7 +77,7 @@
         android:background="@drawable/ripple_effect"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/et_password" />
+        app:layout_constraintTop_toBottomOf="@id/check_box" />
 
     <Button
         android:id="@+id/btn_reset"
@@ -80,7 +88,7 @@
         android:background="@drawable/ripple_effect"
         android:text="@string/reset"
         app:layout_constraintStart_toStartOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/et_password" />
+        app:layout_constraintTop_toBottomOf="@id/check_box" />
 
     <TextView
         android:id="@+id/tv_daftar_akun"

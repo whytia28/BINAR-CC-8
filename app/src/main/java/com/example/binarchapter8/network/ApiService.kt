@@ -10,6 +10,9 @@ interface ApiService {
     @POST ("v1/auth/login")
     fun validateLogin(@Body body: PostLoginBody): Call<LoginResponse>
 
+    @GET("v1/auth/me")
+    fun autoLogin(@Header("Authorization") auth: String): Call<AuthResponse>
+
     @POST("v1/auth/register")
     fun registerUser(@Body bodyRegister: PostBodyRegister): Call<RegisterResponse>
 

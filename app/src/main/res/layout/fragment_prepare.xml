@@ -7,6 +7,15 @@
     android:background="@color/colorBackground"
     tools:context=".welcome.PemainFragment">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_prepare" />
 
     <ImageView
         android:id="@+id/profil"
@@ -22,6 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_prepare"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -32,18 +42,6 @@
         app:layout_constraintEnd_toEndOf="@id/profil"
         app:layout_constraintStart_toStartOf="@id/profil"
         app:layout_constraintTop_toBottomOf="@id/profil" />
-
-<!--    <EditText-->
-<!--        android:id="@+id/input_nama"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="15dp"-->
-<!--        android:hint="@string/silakan_input_nama"-->
-<!--        app:layout_constraintEnd_toEndOf="@id/keterangan"-->
-<!--        app:layout_constraintStart_toStartOf="@id/keterangan"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/keterangan"-->
-<!--        android:autofillHints="Nama"-->
-<!--        android:inputType="text" />-->
 
     <TextView
         android:id="@+id/slide"

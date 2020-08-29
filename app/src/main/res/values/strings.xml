@@ -72,5 +72,7 @@
     <string name="button_set_profile">Button set profile</string>
     <string name="image_profile">Image profile</string>
     <string name="change_language">Change Language</string>
+    <string name="remember_me">Remember me</string>
+    <string name="logout">Logout</string>
 
 </resources>

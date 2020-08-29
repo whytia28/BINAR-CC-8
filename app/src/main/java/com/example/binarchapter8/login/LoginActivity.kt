@@ -10,6 +10,7 @@ import com.example.binarchapter8.R
 import com.example.binarchapter8.main.MenuActivity
 import com.example.binarchapter8.pojo.LoginResponse
 import com.example.binarchapter8.register.RegisterActivity
+import com.example.binarchapter8.sharedpref.MySharedPreferences
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
@@ -17,6 +18,7 @@ import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity(), LoginPresenter.Listener {
 
+    private lateinit var token: String
 
     @Inject
     lateinit var presenter: LoginPresenter
@@ -26,11 +28,12 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.Listener {
         setContentView(R.layout.activity_login)
         AndroidInjection.inject(this)
 
-
         presenter.listener = this
 
+        token = MySharedPreferences(applicationContext).getData("token").toString()
+
         btn_login.setOnClickListener {
-            presenter.validateLogin(this, et_email.text.toString(), et_password.text.toString())
+            presenter.validateLogin(et_email.text.toString(), et_password.text.toString())
         }
 
         btn_reset.setOnClickListener {
@@ -47,7 +50,7 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.Listener {
         et_password.setText("")
     }
 
-    override fun onLoginSuccess(message: String) {
+    override fun onLoginSuccess() {
         Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
         finish()
     }
@@ -65,6 +68,10 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.Listener {
         intent.putExtra("data", data)
         startActivity(intent)
         finish()
+    }
+
+    override fun saveToken(key: String, data: String) {
+        MySharedPreferences(applicationContext).putData(key, data)
     }
 
     override fun goToRegisterActivity() {
