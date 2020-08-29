@@ -29,7 +29,7 @@ class RegisterPresenter(private val apiService: ApiService) {
                 } else {
                     response.body()?.success.let {
                         if (it != null) {
-                            listener?.onRegisterSuccess(it)
+                            listener?.onRegisterSuccess()
                         }
                     }
                 }
@@ -55,7 +55,7 @@ class RegisterPresenter(private val apiService: ApiService) {
         fun resetEditText()
         fun onBackPress()
         fun onRegisterFailed(message: String)
-        fun onRegisterSuccess(successMessage: String)
+        fun onRegisterSuccess()
         fun onUsernameExist(existMessage: String)
     }
 }

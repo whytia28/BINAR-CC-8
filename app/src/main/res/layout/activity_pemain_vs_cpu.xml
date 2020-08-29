@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".areaMain.PemainVsPemain">
+    tools:context=".areaMain.PemainVsPemain"
+    tools:ignore="Overdraw">
 
     <ImageView
         android:id="@+id/btn_back"
@@ -14,7 +15,8 @@
         android:src="@drawable/back"
         android:layout_margin="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/button_back" />
 
     <ImageView
         android:id="@+id/logo"
@@ -142,7 +144,6 @@
         app:layout_constraintTop_toBottomOf="@id/guideline2" />
 
     <ImageView
-        android:id="@+id/iv_delete_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/button_save"

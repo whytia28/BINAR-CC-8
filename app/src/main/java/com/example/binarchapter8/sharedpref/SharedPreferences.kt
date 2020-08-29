@@ -3,9 +3,7 @@ package com.example.binarchapter8.sharedpref
 import android.content.Context
 
 
-
-
-class MySharedPreferences (val context: Context) {
+class MySharedPreferences(val context: Context) {
 
     private var mSharedPreferences = context.getSharedPreferences("userData", Context.MODE_PRIVATE)
 

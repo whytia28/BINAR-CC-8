@@ -12,6 +12,7 @@ import com.example.binarchapter8.R
 import com.example.binarchapter8.areaMain.PemainVsCpu
 import com.example.binarchapter8.areaMain.PemainVsPemain
 import com.example.binarchapter8.main.MenuActivity
+import com.example.binarchapter8.pojo.AuthResponse
 import com.example.binarchapter8.pojo.LoginResponse
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_battle.*
@@ -20,7 +21,7 @@ import javax.inject.Inject
 
 class BattleFragment : Fragment(), View.OnClickListener, BattlePresenter.Listener {
     private lateinit var battleViewModel: BattleViewModel
-    private lateinit var result: LoginResponse.Data
+    private lateinit var username: String
 
     @Inject
     lateinit var presenter: BattlePresenter
@@ -47,12 +48,20 @@ class BattleFragment : Fragment(), View.OnClickListener, BattlePresenter.Listene
         val context = view.context as MenuActivity
         context.supportActionBar?.title = getString(R.string.battle)
 
-        context.intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
-            result = it
+        if (context.intent.hasExtra("data")) {
+            context.intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
+                username = it.username
+            }
+        }
+        if (context.intent.hasExtra("dataFromPrepare")) {
+            context.intent.getParcelableExtra<AuthResponse.Data>("dataFromPrepare")?.let {
+                username = it.username
+            }
         }
 
-        tv_pemain.text = getString(R.string.vs_pemain, result.username)
-        tv_cpu.text = getString(R.string.vs_cpu, result.username)
+
+        tv_pemain.text = getString(R.string.vs_pemain, username)
+        tv_cpu.text = getString(R.string.vs_cpu, username)
 
         presenter.listener = this
 
@@ -65,10 +74,10 @@ class BattleFragment : Fragment(), View.OnClickListener, BattlePresenter.Listene
     override fun onClick(v: View) {
         when (v.id) {
             R.id.pemainvspemain -> {
-                presenter.goToPemainVsPemain(result)
+                presenter.goToPemainVsPemain(username)
             }
             R.id.pemainvscpu -> {
-                presenter.goToPemainVsCpu(result)
+                presenter.goToPemainVsCpu(username)
             }
             R.id.btn_exit -> {
                 activity?.finish()
@@ -76,15 +85,15 @@ class BattleFragment : Fragment(), View.OnClickListener, BattlePresenter.Listene
         }
     }
 
-    override fun goToPemainVsPemain(data: LoginResponse.Data) {
+    override fun goToPemainVsPemain(username: String) {
         val moveIntent = Intent(context, PemainVsPemain::class.java)
-        moveIntent.putExtra("data", data)
+        moveIntent.putExtra("username", username)
         startActivity(moveIntent)
     }
 
-    override fun goToPemainVsCpu(data: LoginResponse.Data) {
+    override fun goToPemainVsCpu(username: String) {
         val moveIntent = Intent(context, PemainVsCpu::class.java)
-        moveIntent.putExtra("data", data)
+        moveIntent.putExtra("username", username)
         startActivity(moveIntent)
     }
 

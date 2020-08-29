@@ -8,8 +8,8 @@ import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import com.example.binarchapter8.R
 import com.example.binarchapter8.logic.Controller
-import com.example.binarchapter8.pojo.LoginResponse
 import com.example.binarchapter8.pojo.PostBattleBody
+import com.example.binarchapter8.sharedpref.MySharedPreferences
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_pemain_vs_cpu.*
 import kotlinx.android.synthetic.main.custom_alert_dialog.*
@@ -21,7 +21,7 @@ class PemainVsCpu : AppCompatActivity(), PemainVsCpuPresenter.Listener {
 
     private var pilihanSatu: String = ""
     private var pemenang: String = ""
-    private lateinit var result: LoginResponse.Data
+    private var username: String? = ""
 
     @Inject
     lateinit var presenter: PemainVsCpuPresenter
@@ -32,11 +32,9 @@ class PemainVsCpu : AppCompatActivity(), PemainVsCpuPresenter.Listener {
         setContentView(R.layout.activity_pemain_vs_cpu)
 
 
-        intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
-            result = it
-        }
+        username = intent.getStringExtra("username")
         presenter.listener = this
-        pemain1.text = result.username
+        pemain1.text = username
 
         batu1.setOnClickListener {
             pilihanSatu = Controller.pilihanGame[0]
@@ -62,7 +60,7 @@ class PemainVsCpu : AppCompatActivity(), PemainVsCpuPresenter.Listener {
         }
 
         iv_save.setOnClickListener {
-            val token = "Bearer ${result.token}"
+            val token = MySharedPreferences(applicationContext).getData("token").toString()
             val mode = "Singleplayer"
             val body = PostBattleBody(mode, pemenang)
             presenter.saveHistory(token, body)

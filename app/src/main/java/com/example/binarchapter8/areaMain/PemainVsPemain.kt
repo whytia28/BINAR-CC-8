@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.example.binarchapter8.R
 import com.example.binarchapter8.logic.Controller
-import com.example.binarchapter8.pojo.LoginResponse
 import com.example.binarchapter8.pojo.PostBattleBody
+import com.example.binarchapter8.sharedpref.MySharedPreferences
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_pemain_vs_pemain.*
 import kotlinx.android.synthetic.main.custom_alert_dialog.*
@@ -21,7 +21,7 @@ class PemainVsPemain : AppCompatActivity(), PemainVsPemainPresenter.Listener {
     private var pilihanSatu: String = ""
     private var pilihanDua: String = ""
     private var pemenang: String = ""
-    private lateinit var result: LoginResponse.Data
+    private var username: String? = ""
 
     @Inject
     lateinit var presenter: PemainVsPemainPresenter
@@ -33,10 +33,8 @@ class PemainVsPemain : AppCompatActivity(), PemainVsPemainPresenter.Listener {
 
 
 
-        intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
-            result = it
-        }
-        pemain1.text = result.username
+        username = intent.getStringExtra("username")
+        pemain1.text = username
         presenter.listener = this
 
         batu1.setOnClickListener {
@@ -73,7 +71,7 @@ class PemainVsPemain : AppCompatActivity(), PemainVsPemainPresenter.Listener {
             presenter.startNew()
         }
         iv_save.setOnClickListener {
-            val token = "Bearer ${result.token}"
+            val token = MySharedPreferences(applicationContext).getData("token").toString()
             val mode = "Multiplayer"
             val body = PostBattleBody(mode, pemenang)
             presenter.saveHistory(token, body)

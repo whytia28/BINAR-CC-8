@@ -11,7 +11,7 @@ import javax.inject.Inject
 class RegisterActivity : AppCompatActivity(), RegisterPresenter.Listener {
 
     @Inject
-   lateinit var presenter: RegisterPresenter
+    lateinit var presenter: RegisterPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -21,7 +21,11 @@ class RegisterActivity : AppCompatActivity(), RegisterPresenter.Listener {
         presenter.listener = this
 
         btn_register.setOnClickListener {
-            presenter.registerUser(et_email.text.toString(), et_password.text.toString(), et_username.text.toString())
+            presenter.registerUser(
+                et_email.text.toString(),
+                et_password.text.toString(),
+                et_username.text.toString()
+            )
         }
 
         btn_reset.setOnClickListener {
@@ -47,8 +51,8 @@ class RegisterActivity : AppCompatActivity(), RegisterPresenter.Listener {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun onRegisterSuccess(successMessage: String) {
-        Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show()
+    override fun onRegisterSuccess() {
+        Toast.makeText(this, getString(R.string.register_success), Toast.LENGTH_SHORT).show()
         finish()
     }
 

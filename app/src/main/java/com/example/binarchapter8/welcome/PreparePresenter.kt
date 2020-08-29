@@ -10,14 +10,13 @@ class PreparePresenter(private val apiService: ApiService) {
 
     var listener: Listener? = null
 
-        fun autoLogin(token: String) {
-            listener?.showProgressBar()
+    fun autoLogin(token: String) {
+        listener?.showProgressBar()
         apiService.autoLogin(token).enqueue(object : Callback<AuthResponse> {
             override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
                 if (response.code() == 200) {
                     response.body()?.data?.let {
                         listener?.goToMenuActivity(it)
-                        listener?.onLoginSuccess()
                     }
                 }
                 listener?.hiddenProgressBar()
@@ -32,12 +31,16 @@ class PreparePresenter(private val apiService: ApiService) {
         })
     }
 
+    fun goToLoginActivity() {
+        listener?.goToLoginActivity()
+    }
+
     interface Listener {
 
-        fun onLoginSuccess()
         fun onLoginFailed(errorMessage: String)
-        fun goToMenuActivity (data: AuthResponse.Data)
+        fun goToMenuActivity(data: AuthResponse.Data)
         fun showProgressBar()
         fun hiddenProgressBar()
+        fun goToLoginActivity()
     }
 }

@@ -1,10 +1,10 @@
 package com.example.binarchapter8.di
 
 
-
 import com.example.binarchapter8.areaMain.PemainVsCpuPresenter
 import com.example.binarchapter8.areaMain.PemainVsPemainPresenter
 import com.example.binarchapter8.login.LoginPresenter
+import com.example.binarchapter8.main.MenuActivityPresenter
 import com.example.binarchapter8.main.ui.battle.BattlePresenter
 import com.example.binarchapter8.main.ui.history.HistoryPresenter
 import com.example.binarchapter8.main.ui.profile.ProfilePresenter
@@ -65,6 +65,12 @@ class PresenterModule {
     @Provides
     fun providePreparePresenter(apiService: ApiService): PreparePresenter {
         return PreparePresenter(apiService)
+    }
+
+    @Singleton
+    @Provides
+    fun provideMenuActivityPresenter(): MenuActivityPresenter {
+        return MenuActivityPresenter()
     }
 
 }

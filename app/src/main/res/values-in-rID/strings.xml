@@ -18,9 +18,7 @@
     <string name="hasil">HASIL</string>
     <string name="selamat_kamu_menang">%1$s MENANG!!!</string>
     <string name="ok">OK</string>
-    <string name="cpu_menang">CPU MENANG!!!</string>
     <string name="hasil_draw">SERI!!!</string>
-    <string name="selamat_pemain_2_menang">PEMAIN 2 MENANG!!!</string>
     <string name="email">Email</string>
     <string name="password">Kata Sandi</string>
     <string name="prepare_yourself">Persiapkan Dirimu!</string>
@@ -30,13 +28,8 @@
     <string name="button_back">tombol kembali</string>
     <string name="name">Nama</string>
     <string name="date_title">Tanggal</string>
-    <string name="cancel">Batal</string>
     <string name="update">Ubah</string>
-    <string name="delete">Hapus</string>
-    <string name="delete_success">Berhasil Menghapus Riwayat</string>
-    <string name="delete_failed">Gagal Menghapus Riwayat</string>
     <string name="add_history_success">Berhasil Menambah Riwayat</string>
-    <string name="add_history_failed">Gagal Menambah Riwayat</string>
     <string name="belum_punya_akun_daftar">Belum punya akun? Daftar</string>
     <string name="here">di sini</string>
     <string name="username">Nama Pengguna</string>
@@ -54,5 +47,16 @@
     <string name="cpu_win">CPU Menang</string>
     <string name="button_save">Tombol Simpan</string>
     <string name="button_restart">Tombol mulai</string>
-    <string name="update_your_profile">Perbarui Profilmu</string>
+    <string name="edit">Ubah</string>
+    <string name="save">Simpan</string>
+    <string name="choose_from">Pilih dari</string>
+    <string name="from_gallery">Pilih dari Galeri</string>
+    <string name="take_picture">Ambil Gambar dari Kamera</string>
+    <string name="button_set_profile">Tombol atur profil</string>
+    <string name="image_profile">Gambar profil</string>
+    <string name="change_language">Ganti Bahasa</string>
+    <string name="remember_me">Ingat Saya</string>
+    <string name="logout">Keluar</string>
+    <string name="logout_success">Berhasil Keluar</string>
+    <string name="register_success">Registrasi Berhasil</string>
 </resources>

@@ -44,21 +44,16 @@ class PrepareFragment : Fragment(), PreparePresenter.Listener {
 
 
         sharedPref = view.context.getSharedPreferences("userData", Context.MODE_PRIVATE)
+        preparePresenter.listener = this
 
         next.setOnClickListener {
             if (sharedPref.contains("token")) {
                 val token = MySharedPreferences(view.context).getData("token").toString()
                 preparePresenter.autoLogin(token)
             } else {
-                val intent = Intent(activity, LoginActivity::class.java)
-                startActivity(intent)
-                activity?.finish()
+                preparePresenter.goToLoginActivity()
             }
         }
-    }
-
-    override fun onLoginSuccess() {
-        Toast.makeText(activity, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
     }
 
     override fun onLoginFailed(errorMessage: String) {
@@ -67,7 +62,7 @@ class PrepareFragment : Fragment(), PreparePresenter.Listener {
 
     override fun goToMenuActivity(data: AuthResponse.Data) {
         val intent = Intent(activity, MenuActivity::class.java)
-        intent.putExtra("data", data)
+        intent.putExtra("dataFromPrepare", data)
         startActivity(intent)
         activity?.finish()
     }
@@ -78,5 +73,11 @@ class PrepareFragment : Fragment(), PreparePresenter.Listener {
 
     override fun hiddenProgressBar() {
         progress_bar.visibility = View.GONE
+    }
+
+    override fun goToLoginActivity() {
+        val intent = Intent(activity, LoginActivity::class.java)
+        activity?.startActivity(intent)
+        activity?.finish()
     }
 }

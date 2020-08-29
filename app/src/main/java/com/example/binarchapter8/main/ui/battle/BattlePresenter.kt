@@ -1,21 +1,20 @@
 package com.example.binarchapter8.main.ui.battle
 
-import com.example.binarchapter8.pojo.LoginResponse
 
 class BattlePresenter {
 
     var listener: Listener? = null
 
-    fun goToPemainVsPemain(data: LoginResponse.Data) {
-        listener?.goToPemainVsPemain(data)
+    fun goToPemainVsPemain(username: String) {
+        listener?.goToPemainVsPemain(username)
     }
 
-    fun goToPemainVsCpu(data: LoginResponse.Data) {
-        listener?.goToPemainVsCpu(data)
+    fun goToPemainVsCpu(username: String) {
+        listener?.goToPemainVsCpu(username)
     }
 
     interface Listener {
-        fun goToPemainVsPemain(data: LoginResponse.Data)
-        fun goToPemainVsCpu(data: LoginResponse.Data)
+        fun goToPemainVsPemain(username: String)
+        fun goToPemainVsCpu(username: String)
     }
 }

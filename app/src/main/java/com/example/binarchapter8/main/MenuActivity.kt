@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -15,28 +16,24 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.binarchapter8.R
 import com.example.binarchapter8.login.LoginActivity
-import com.example.binarchapter8.pojo.LoginResponse
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_menu.*
+import javax.inject.Inject
 
-class MenuActivity : AppCompatActivity() {
+class MenuActivity : AppCompatActivity(), MenuActivityPresenter.Listener {
 
-    private lateinit var result: LoginResponse.Data
-    private lateinit var username: String
-    private lateinit var email: String
     private lateinit var sharedPref: SharedPreferences
 
+    @Inject
+    lateinit var menuActivityPresenter: MenuActivityPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
         setSupportActionBar(menu_actionbar)
-
-        intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
-            result = it
-        }
-        username = result.username
-        email = result.email
+        menuActivityPresenter.listener = this
 
         sharedPref = getSharedPreferences("userData", Context.MODE_PRIVATE)
 
@@ -69,8 +66,14 @@ class MenuActivity : AppCompatActivity() {
             editor.clear()
             editor.apply()
             startActivity(loginIntent)
+            menuActivityPresenter.onLogoutSuccess()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onLogoutSuccess() {
+        Toast.makeText(this, getString(R.string.logout_success), Toast.LENGTH_SHORT).show()
+        finish()
     }
 
 }
