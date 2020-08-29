@@ -14,7 +14,7 @@ import java.io.ByteArrayOutputStream
 import java.util.*
 
 
-class ProfilePresenter(private val apiService: ApiService) {
+class ProfilePresenter( val apiService: ApiService) {
 
     var listener: Listener? = null
 

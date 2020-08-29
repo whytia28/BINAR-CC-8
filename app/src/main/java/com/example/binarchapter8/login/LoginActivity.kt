@@ -2,10 +2,10 @@ package com.example.binarchapter8.login
 
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.binarchapter8.R
 import com.example.binarchapter8.main.MenuActivity
 import com.example.binarchapter8.pojo.LoginResponse
@@ -13,6 +13,7 @@ import com.example.binarchapter8.register.RegisterActivity
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_login.*
 import javax.inject.Inject
+
 
 class LoginActivity : AppCompatActivity(), LoginPresenter.Listener {
 
@@ -25,10 +26,11 @@ class LoginActivity : AppCompatActivity(), LoginPresenter.Listener {
         setContentView(R.layout.activity_login)
         AndroidInjection.inject(this)
 
+
         presenter.listener = this
 
         btn_login.setOnClickListener {
-            presenter.validateLogin(et_email.text.toString(), et_password.text.toString())
+            presenter.validateLogin(this, et_email.text.toString(), et_password.text.toString())
         }
 
         btn_reset.setOnClickListener {

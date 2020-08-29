@@ -16,9 +16,9 @@ import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.binarchapter8.sharedpref.MySharedPreferences
 import com.example.binarchapter8.R
 import com.example.binarchapter8.main.MenuActivity
-import com.example.binarchapter8.pojo.LoginResponse
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_profil.*
 
@@ -35,7 +35,6 @@ class ProfileFragment : Fragment(), ProfilePresenter.Listener {
     lateinit var presenter: ProfilePresenter
 
     companion object {
-        lateinit var result: LoginResponse.Data
         const val REQUEST_CODE = 201
         const val CAMERA_REQUEST = 1001
         const val GALLERY_REQUEST = 1002
@@ -68,12 +67,10 @@ class ProfileFragment : Fragment(), ProfilePresenter.Listener {
 
         val context = view.context as MenuActivity
         context.supportActionBar?.title = getString(R.string.profile)
-        context.intent.getParcelableExtra<LoginResponse.Data>("data")?.let {
-            result = it
-        }
 
         presenter.listener = this
-        token = "Bearer ${result.token}"
+        token = MySharedPreferences(context).getData("token").toString()
+
 
         tv_edit.setOnClickListener {
             presenter.editProfile()

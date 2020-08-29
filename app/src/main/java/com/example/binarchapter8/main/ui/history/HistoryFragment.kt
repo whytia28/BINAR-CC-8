@@ -9,11 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.binarchapter8.sharedpref.MySharedPreferences
 import com.example.binarchapter8.R
 import com.example.binarchapter8.adapter.AdapterHistory
 import com.example.binarchapter8.main.MenuActivity
 import com.example.binarchapter8.pojo.GetBattleResponse
-import com.example.binarchapter8.pojo.LoginResponse
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_history.*
 import javax.inject.Inject
@@ -26,10 +26,6 @@ class HistoryFragment : Fragment(), HistoryPresenter.Listener {
 
     @Inject
     lateinit var presenter: HistoryPresenter
-
-    companion object {
-        var result: LoginResponse.Data? = null
-    }
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -52,10 +48,8 @@ class HistoryFragment : Fragment(), HistoryPresenter.Listener {
         val context = view.context as MenuActivity
 
         context.supportActionBar?.title = getString(R.string.history)
-        context.intent.getParcelableExtra<LoginResponse.Data>("data").let {
-            result = it
-        }
-        token = "Bearer ${result?.token}"
+
+        token = MySharedPreferences(context).getData("token").toString()
         presenter.listener = this
         presenter.showAllHistory(token)
     }

@@ -1,6 +1,7 @@
 package com.example.binarchapter8.di
 
 
+
 import com.example.binarchapter8.areaMain.PemainVsCpuPresenter
 import com.example.binarchapter8.areaMain.PemainVsPemainPresenter
 import com.example.binarchapter8.login.LoginPresenter
@@ -12,6 +13,7 @@ import com.example.binarchapter8.register.RegisterPresenter
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
+
 
 @Module
 class PresenterModule {
@@ -57,5 +59,6 @@ class PresenterModule {
     fun provideBattlePresenter(): BattlePresenter {
         return BattlePresenter()
     }
+
 
 }

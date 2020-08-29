@@ -1,11 +1,13 @@
 package com.example.binarchapter8.di
 
 import android.app.Application
+import android.content.SharedPreferences
 import com.example.binarchapter8.BaseApp
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
+
 
 @Singleton
 @Component(

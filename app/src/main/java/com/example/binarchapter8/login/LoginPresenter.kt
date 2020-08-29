@@ -1,6 +1,8 @@
 package com.example.binarchapter8.login
 
 
+import android.content.Context
+import com.example.binarchapter8.sharedpref.MySharedPreferences
 import com.example.binarchapter8.network.ApiService
 import com.example.binarchapter8.pojo.LoginResponse
 import com.example.binarchapter8.pojo.PostLoginBody
@@ -9,12 +11,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginPresenter(private val apiService: ApiService) {
 
+class LoginPresenter(val apiService: ApiService) {
 
     var listener: Listener? = null
 
-    fun validateLogin(email: String, password: String) {
+    fun validateLogin(context: Context, email: String, password: String) {
         listener?.showProgressBar()
         val user = PostLoginBody(email, password)
         apiService.validateLogin(user).enqueue(object : Callback<LoginResponse> {
@@ -29,6 +31,7 @@ class LoginPresenter(private val apiService: ApiService) {
                 if (response.code() == 200) {
                     response.body()?.data?.let {
                         listener?.goToMenuActivity(it)
+                        MySharedPreferences(context).putData("token", "Bearer ${it.token}")
                     }
                 } else if (email.isEmpty() && password.isEmpty()) {
                     listener?.onFieldEmpty(response.message())
