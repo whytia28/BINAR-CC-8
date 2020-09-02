@@ -1,8 +1,6 @@
 package com.example.binarchapter8.main
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
@@ -16,13 +14,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.binarchapter8.R
 import com.example.binarchapter8.login.LoginActivity
+import com.example.binarchapter8.sharedpref.MySharedPreferences
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_menu.*
 import javax.inject.Inject
 
 class MenuActivity : AppCompatActivity(), MenuActivityPresenter.Listener {
-
-    private lateinit var sharedPref: SharedPreferences
 
     @Inject
     lateinit var menuActivityPresenter: MenuActivityPresenter
@@ -35,7 +32,6 @@ class MenuActivity : AppCompatActivity(), MenuActivityPresenter.Listener {
         setSupportActionBar(menu_actionbar)
         menuActivityPresenter.listener = this
 
-        sharedPref = getSharedPreferences("userData", Context.MODE_PRIVATE)
 
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
@@ -62,9 +58,7 @@ class MenuActivity : AppCompatActivity(), MenuActivityPresenter.Listener {
             startActivity(changeIntent)
         } else if (item.itemId == R.id.logout) {
             val loginIntent = Intent(this, LoginActivity::class.java)
-            val editor = sharedPref.edit()
-            editor.clear()
-            editor.apply()
+            MySharedPreferences(this).deleteData()
             startActivity(loginIntent)
             menuActivityPresenter.onLogoutSuccess()
         }

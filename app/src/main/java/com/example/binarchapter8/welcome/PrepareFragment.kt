@@ -58,6 +58,7 @@ class PrepareFragment : Fragment(), PreparePresenter.Listener {
 
     override fun onLoginFailed(errorMessage: String) {
         Toast.makeText(activity, errorMessage, Toast.LENGTH_SHORT).show()
+        context?.let { MySharedPreferences(it).deleteData() }
     }
 
     override fun goToMenuActivity(data: AuthResponse.Data) {

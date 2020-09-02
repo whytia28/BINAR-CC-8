@@ -2,6 +2,7 @@ package com.example.binarchapter8.welcome
 
 import com.example.binarchapter8.network.ApiService
 import com.example.binarchapter8.pojo.AuthResponse
+import com.example.binarchapter8.sharedpref.MySharedPreferences
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,6 +26,7 @@ class PreparePresenter(private val apiService: ApiService) {
             override fun onFailure(call: Call<AuthResponse>, t: Throwable) {
                 t.message?.let {
                     listener?.onLoginFailed(it)
+                    listener?.goToLoginActivity()
                 }
             }
 
